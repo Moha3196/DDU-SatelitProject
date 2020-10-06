@@ -6,13 +6,8 @@ float r = 200;
 float angle;
 
 
-void settings() {
-  size(600, 600, P3D);
-}
-
-
-
 void setup() {
+  size(600, 600, P3D);
   staticData = loadJSONObject("static satelite data.json");
   earth = loadImage("earth.jpg");
   // table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_day.csv", "header");
