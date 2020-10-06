@@ -1,7 +1,7 @@
 JSONObject staticData;
 PImage earth;
 PShape globe;
-Table table;
+//Table table;
 float r = 200;
 float angle;
 
@@ -10,8 +10,7 @@ void setup() {
   size(600, 600, P3D);
   staticData = loadJSONObject("static satelite data.json");
   earth = loadImage("earth.jpg");
-  // table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_day.csv", "header");
-  table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv", "header");
+  //table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv", "header");
 
   noStroke();
   globe = createShape(SPHERE, r);
@@ -32,10 +31,10 @@ void draw() {
   //sphere(r);
   shape(globe);
 
-  for (TableRow row : table.rows()) {
-    float lat = row.getFloat("latitude");
-    float lon = row.getFloat("longitude");
-    float mag = row.getFloat("mag");
+ // for (TableRow row : table.rows()) {
+    float lat = staticData.getFloat("satLatitude");
+    float lon = staticData.getFloat("satLongitude");
+    float alt = staticData.getFloat("satAltitude");
 
     // original version
     // float theta = radians(lat) + PI/2;
@@ -57,7 +56,7 @@ void draw() {
 
     PVector pos = new PVector(x, y, z);
 
-    float h = pow(10, mag);
+    float h = pow(10, alt);
     float maxh = pow(10, 7);
     h = map(h, 0, maxh, 10, 100);
     PVector xaxis = new PVector(1, 0, 0);
@@ -72,5 +71,5 @@ void draw() {
     fill(255);
     box(h, 5, 5);
     popMatrix();
-  }
+ //}
 }

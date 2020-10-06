@@ -6,9 +6,9 @@
   },
   "positions": [
     {
-      "satlatitude": -39.90318514,
-      "satlongitude": 158.28897924,
-      "sataltitude": 417.85,
+      "satLatitude": -39.90318514,
+      "satLongitude": 158.28897924,
+      "satAltitude": 417.85,
       "azimuth": 254.31,
       "elevation": -69.09,
       "ra": 44.77078138,
