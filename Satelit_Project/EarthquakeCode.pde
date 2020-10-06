@@ -12,8 +12,11 @@
 //PImage earth;
 //PShape globe;
 
-//void setup() {
+//void settings() {
 //  size(600, 600, P3D);
+//}
+
+//void setup() {
 //  earth = loadImage("earth.jpg");
 //  // table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_day.csv", "header");
 //  table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv", "header");
