@@ -8,7 +8,7 @@ float angle;
 
 void setup() {
   size(600, 600, P3D);
-  staticData = loadJSONObject("static satelite data.json");
+  staticData = loadJSONObject("staticSateliteData.json");
   earth = loadImage("earth.jpg");
   //table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv", "header");
 
@@ -30,7 +30,6 @@ void draw() {
   noStroke();
   //sphere(r);
   shape(globe);
-
  // for (TableRow row : table.rows()) {
     float lat = staticData.getFloat("satLatitude");
     float lon = staticData.getFloat("satLongitude");

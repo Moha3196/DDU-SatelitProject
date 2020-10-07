@@ -1,10 +1,4 @@
-{
-  "info": {
-    "satname": "SPACE STATION",
-    "satid": 25544,
-    "transactionscount": 5
-  },
-  "positions": [
+
     {
       "satLatitude": -39.90318514,
       "satLongitude": 158.28897924,
@@ -25,5 +19,3 @@
       "dec": -43.98086419,
       "timestamp": 1521354419
     }
-  ]
-}
