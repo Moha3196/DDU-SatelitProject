@@ -2,12 +2,13 @@ JSONObject staticData;
 PImage earth;
 PShape globe;
 //Table table;
-float r = 200;
+float r = 300;
 float angle;
+float  jordRadius = 6371.7955/r;
 
 
 void setup() {
-  size(600, 600, P3D);
+  size(800, 800, P3D);
   staticData = loadJSONObject("staticSateliteData.json");
   earth = loadImage("earth.jpg");
   //table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv", "header");
@@ -23,7 +24,7 @@ void draw() {
   background(51);
   translate(width*0.5, height*0.5);
   rotateY(angle);
-  angle += 0.05;
+  angle += 0.03;
 
   lights();
   fill(200);
@@ -34,6 +35,7 @@ void draw() {
     float lat = staticData.getFloat("satLatitude");
     float lon = staticData.getFloat("satLongitude");
     float alt = staticData.getFloat("satAltitude");
+
 
     // original version
     // float theta = radians(lat) + PI/2;
@@ -55,9 +57,10 @@ void draw() {
 
     PVector pos = new PVector(x, y, z);
 
-    float h = pow(10, alt);
-    float maxh = pow(10, 7);
-    h = map(h, 0, maxh, 10, 100);
+    float h = alt/jordRadius;
+    println(h);
+    //float maxh = pow(10, 7);
+    //h = map(h, 0, maxh, 10, 100);
     PVector xaxis = new PVector(1, 0, 0);
     float angleb = PVector.angleBetween(xaxis, pos);
     PVector raxis = xaxis.cross(pos);
@@ -65,10 +68,10 @@ void draw() {
 
 
     pushMatrix();
-    translate(x, y, z);
+    translate(x+h, y, z);
     rotate(angleb, raxis.x, raxis.y, raxis.z);
     fill(255);
-    box(h, 5, 5);
+    box(5, 5, 5);
     popMatrix();
  //}
 }
